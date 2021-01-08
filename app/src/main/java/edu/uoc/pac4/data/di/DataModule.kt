@@ -1,6 +1,7 @@
 package edu.uoc.pac4.data.di
 
 import edu.uoc.pac4.data.SessionManager
+import edu.uoc.pac4.data.network.Network
 import edu.uoc.pac4.data.oauth.AuthenticationRepository
 import edu.uoc.pac4.data.oauth.OAuthAuthenticationDataSource
 import edu.uoc.pac4.data.oauth.OAuthAuthenticationRepository
@@ -25,7 +26,7 @@ val dataModule = module {
 
     // Data Sources
     single { OAuthAuthenticationDataSource(SessionManager(androidContext()), get()) }
-    single { TwitchStreamsDataSource(get()) }
+    single { TwitchStreamsDataSource(get(), get()) }
     single { TwitchUserDataSource(get()) }
 
     // Repositories
@@ -33,5 +34,6 @@ val dataModule = module {
     single<StreamsRepository> { TwitchStreamsRepository(get()) }
     single<UserRepository> { TwitchUserRepository(get()) }
 
-
+    single { Network.createHttpClient(androidContext()) }
+    single { SessionManager(androidContext()) }
 }

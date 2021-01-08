@@ -1,13 +1,14 @@
 package edu.uoc.pac4.data.streams
 
 import android.util.Log
+import edu.uoc.pac4.data.SessionManager
 import edu.uoc.pac4.data.network.Endpoints
 import edu.uoc.pac4.data.network.UnauthorizedException
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.request.*
 
-class TwitchStreamsDataSource(private val httpClient: HttpClient) {
+class TwitchStreamsDataSource(private val httpClient: HttpClient, private val sessionManager: SessionManager) {
 
     private val TAG = "TwitchStreamsDataSource"
 
@@ -27,6 +28,9 @@ class TwitchStreamsDataSource(private val httpClient: HttpClient) {
                 is ClientRequestException -> {
                     // Check if it's a 401 Unauthorized
                     if (t.response?.status?.value == 401) {
+                        Log.w(TAG, "UnauthorizedException getting streams", t)
+                        // clear local access token
+                        sessionManager.clearAccessToken()
                         throw UnauthorizedException
                     }
                     Pair(null, listOf())

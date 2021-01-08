@@ -11,6 +11,7 @@ class TwitchUserDataSource(private val httpClient: HttpClient) {
     private val TAG = "TwitchUserDataSource"
 
     /// Gets Current Authorized User on Twitch
+    @Throws(UnauthorizedException::class)
     suspend fun getUser(): User? {
         try {
             val response = httpClient
@@ -34,6 +35,7 @@ class TwitchUserDataSource(private val httpClient: HttpClient) {
     }
 
     /// Gets Current Authorized User on Twitch
+    @Throws(UnauthorizedException::class)
     suspend fun updateUser(description: String): User? {
         try {
             val response = httpClient
