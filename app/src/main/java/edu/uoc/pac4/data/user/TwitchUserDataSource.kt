@@ -7,8 +7,9 @@ import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.request.*
 
+private const val TAG = "TwitchUserDataSource"
+
 class TwitchUserDataSource(private val httpClient: HttpClient) {
-    private val TAG = "TwitchUserDataSource"
 
     /// Gets Current Authorized User on Twitch
     @Throws(UnauthorizedException::class)

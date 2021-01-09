@@ -10,11 +10,12 @@ import edu.uoc.pac4.data.user.User
 import edu.uoc.pac4.data.user.UserRepository
 import kotlinx.coroutines.launch
 
+private const val TAG = "ProfileViewModel"
+
 class ProfileViewModel(
         private val authenticationRepository: AuthenticationRepository,
         private val userRepository: UserRepository
 ) : ViewModel() {
-    private val TAG = "ProfileViewModel"
 
     // Live Data
     val isLoading = MutableLiveData<Boolean>()

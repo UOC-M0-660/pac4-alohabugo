@@ -8,9 +8,9 @@ import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.request.*
 
-class TwitchStreamsDataSource(private val httpClient: HttpClient, private val sessionManager: SessionManager) {
+private const val TAG = "TwitchStreamsDataSource"
 
-    private val TAG = "TwitchStreamsDataSource"
+class TwitchStreamsDataSource(private val httpClient: HttpClient, private val sessionManager: SessionManager) {
 
     /// Gets Streams on Twitch
     @Throws(UnauthorizedException::class)

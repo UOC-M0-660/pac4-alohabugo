@@ -17,9 +17,9 @@ import edu.uoc.pac4.data.oauth.OAuthConstants
 import kotlinx.android.synthetic.main.activity_oauth.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class OAuthActivity : AppCompatActivity() {
+private const val TAG = "StreamsActivity"
 
-    private val TAG = "StreamsActivity"
+class OAuthActivity : AppCompatActivity() {
 
     private val oAuthViewModel: OAuthViewModel by viewModel()
 

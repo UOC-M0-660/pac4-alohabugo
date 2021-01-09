@@ -6,10 +6,11 @@ import edu.uoc.pac4.data.network.Endpoints
 import io.ktor.client.*
 import io.ktor.client.request.*
 
-class OAuthAuthenticationDataSource(private val sessionManager: SessionManager, private val httpClient: HttpClient) {
-    private val TAG = "OAuthAuthenticationDataSource"
+private const val TAG = "OAuthAuthenticationDS"
 
-    suspend fun isUserAvailable(): Boolean {
+class OAuthAuthenticationDataSource(private val sessionManager: SessionManager, private val httpClient: HttpClient) {
+
+    fun isUserAvailable(): Boolean {
         return sessionManager.isUserAvailable()
     }
 
@@ -41,7 +42,7 @@ class OAuthAuthenticationDataSource(private val sessionManager: SessionManager, 
         }
     }
 
-    suspend fun logout() {
+    fun logout() {
         sessionManager.clearAccessToken()
         sessionManager.clearRefreshToken()
     }

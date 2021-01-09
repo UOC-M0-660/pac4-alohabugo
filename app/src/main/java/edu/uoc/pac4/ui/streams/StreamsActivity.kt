@@ -2,7 +2,6 @@ package edu.uoc.pac4.ui.streams
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -15,8 +14,6 @@ import kotlinx.android.synthetic.main.activity_streams.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class StreamsActivity : AppCompatActivity() {
-
-    private val TAG = "StreamsActivity"
 
     private val adapter = StreamsAdapter()
     private val layoutManager = LinearLayoutManager(this)

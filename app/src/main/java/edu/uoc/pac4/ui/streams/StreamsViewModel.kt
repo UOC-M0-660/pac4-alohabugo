@@ -10,11 +10,12 @@ import edu.uoc.pac4.data.streams.Stream
 import edu.uoc.pac4.data.streams.StreamsRepository
 import kotlinx.coroutines.launch
 
+private const val TAG = "StreamsViewModel"
+
 class StreamsViewModel(
         private val authenticationRepository: AuthenticationRepository,
         private val streamsRepository: StreamsRepository
 ) : ViewModel() {
-    private val TAG = "StreamsViewModel"
 
     // Live Data
     val isRefreshing = MutableLiveData<Boolean>()
