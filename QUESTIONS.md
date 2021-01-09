@@ -140,3 +140,15 @@ De esta manera, MovieTheatre ya no es responsable de crear sus propias dependenc
 
 Inyectar dependencias a través del constructor está bien para aplicaciones simples, sin embargo, una aplicación más complicada puede tener una red de dependencias, lo que conllevaría a una gran cantidad de código repetitivo.
 Si una aplicación tiene dependencias demasiado complicadas, se puede considerar usar un marco de terceros como Koin, Proton, Feather, Tiger, Lightsaber, Transfundir o Daga 2.
+
+
+### Ejercicio 6: Análisis de código estático
+
+#### Ejercutar Lint y revisar errores y warnings. 5 problemas en el proyecto y cómo corregirlos:
+
+Al ejecutar Lint me aparecen dintintos warnings en Android, kotlin, XML, ... Se comentan los 5 siguientes:
+* __Image without contentDescription:__ Nos avisa de que las imágenes no poseen el atributo “contentDescription” afectando a la accesibilidad del proyecto. Se corrige añadiendo dicho atributo en las imágenes correspondientes.
+* __Using setJavaScriptEnabled:__ Nos avisa de que no deberíamos utilizar en nuestro código la invocación setJavaScriptEnabled si no estamos seguros de que la aplicación realmente necesita soporte JavaScript. Dicho warning se corrige eliminando dicha opción en caso de no necesitarlo.
+* __Unused resources:__ Nos avisa de recursos no utilizados en nuestra app (en colors.xml, dimens.xml, strings.xml). Dichos recursos, si no son necesarios incrementan el tamaño de las aplicaciones y ralentizan las compilaciones. Se corrige eliminando dichos recursos, puesto que no se utilizan
+* __Unused XML schema declaration:__ Nos avisa de recursos declarados que no son usados en el proyecto. Se corrige eliminando dichos recursos.
+* __Private property naming convention:__ Esta inspección informa los nombres de propiedad privada que no siguen las convenciones de nomenclatura recomendadas.
